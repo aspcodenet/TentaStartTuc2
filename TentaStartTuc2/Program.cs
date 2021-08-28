@@ -21,7 +21,7 @@ namespace TentaStartTuc2
             {
                 var serviceProvider = scope.ServiceProvider;
                 var dbContext = serviceProvider.GetRequiredService<ApplicationDbContext>();
-                dbContext.Database.Migrate();
+                new DataInitializer().InitializeDatabase(dbContext);
             }
 
             host.Run();
